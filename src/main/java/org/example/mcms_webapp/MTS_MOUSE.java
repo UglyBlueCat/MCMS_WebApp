@@ -1,9 +1,17 @@
 package org.example.mcms_webapp;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.sql.Date;
 
+@Entity
 public class MTS_MOUSE {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer ID; // INTEGER Primary Key
     private Integer LITTER_ID; // INTEGER Foreign Key to MTS_LITTER
     private String NAME; // VARCHAR2 (64 Char) Animal name

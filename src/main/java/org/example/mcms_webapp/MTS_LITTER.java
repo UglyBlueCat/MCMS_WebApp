@@ -1,9 +1,17 @@
 package org.example.mcms_webapp;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.sql.Date;
 
+@Entity
 public class MTS_LITTER {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer ID; // INTEGER Primary Key
     private Integer BREEDING_ID; // INTEGER Foreign Key to MTS_BREEDING
     private Date BIRTH_DATE; // DATE Date of birth of mice
