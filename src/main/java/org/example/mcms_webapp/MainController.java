@@ -15,7 +15,13 @@ public class MainController {
     private ForePawGripStrengthLogic forePawGripStrengthLogic;
 
     @Autowired
+    private MTS_LitterLogic mts_LitterLogic;
+
+    @Autowired
     private MTS_MouseLogic mts_MouseLogic;
+
+    @Autowired
+    private MTS_BreedingLogic mts_BreedingLogic;
 
     @GetMapping("/")
     public String greeting() {
