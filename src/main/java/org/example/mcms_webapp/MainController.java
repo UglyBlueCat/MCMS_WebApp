@@ -34,6 +34,12 @@ public class MainController {
 
             final int forepawGripStrengthJsonArraySize = forepawGripStrengthJsonArray.size();
 
+            // Add dummy litter data
+            final Integer LITTER_COUNT = 6;
+            for (int i = 0; i < LITTER_COUNT; i++) {
+                mts_LitterLogic.AddDatabaseEntry(i);
+            }
+
             for (int i = 0; i < forepawGripStrengthJsonArraySize; i++) {
                 JsonObject forepawGripStrengthJsonObject = forepawGripStrengthJsonArray.get(i).getAsJsonObject();
 
