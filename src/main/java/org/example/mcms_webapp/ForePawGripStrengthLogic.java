@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ForePawGripStrengthLogic {
     @Autowired
-    private static ForePawGripStrengthRepository forePawGripStrengthRepository;
+    private ForePawGripStrengthRepository forePawGripStrengthRepository;
 
     public void updateOrInsertUsingRepository(ForePawGripStrength forePawGripStrength) {
         forePawGripStrengthRepository.updateOrinsert(forePawGripStrength);
     }
 
     //TODO: Replace with method loading data from file
-    public static String SampleJSON = "[\n" +
+    public String SampleJSON = "[\n" +
             "{\"SubjectGroup\":\"Controls (Wildtype)\",\"MouseName\":\"GPAA780.2c\",\"GripStrength\":114},\n" +
             "{\"SubjectGroup\":\"Controls (Wildtype)\",\"MouseName\":\"GPAA711.6d\",\"GripStrength\":105},\n" +
             "{\"SubjectGroup\":\"Controls (Wildtype)\",\"MouseName\":\"GPAA716.4d\",\"GripStrength\":91.4},\n" +
@@ -50,7 +50,7 @@ public class ForePawGripStrengthLogic {
             "{\"SubjectGroup\":\"Subject Group 2 (Homozygous)\",\"MouseName\":\"MAAE65.1f\",\"GripStrength\":93.1}\n" +
             "]";
 
-    public static void AddDatabaseEntry(String mouseName, String subjectGroup, Float gripStrength) {
+    public void AddDatabaseEntry(String mouseName, String subjectGroup, Float gripStrength) {
         ForePawGripStrength forePawGripStrength = new ForePawGripStrength();
         forePawGripStrength.setSubjectGroup(subjectGroup);
         forePawGripStrength.setMouseName(mouseName);

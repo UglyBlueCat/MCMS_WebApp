@@ -1,9 +1,6 @@
 package org.example.mcms_webapp;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -14,8 +11,10 @@ public class MTS_MOUSE {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer ID; // INTEGER Primary Key
     private Integer LITTER_ID; // INTEGER Foreign Key to MTS_LITTER
+    @Column(unique=true)
     private String NAME; // VARCHAR2 (64 Char) Animal name
     private Date EDIT_DATE; // DATE Date record was last saved
+    @Column(unique=true)
     private String RFID_TAG; // VARCHAR2 (256 Char) Alternate ID for mice containing microchip identifier
     private Float COAT_COLOUR_DICT_ID; // NUMBER Dictionary code for mouse coat colour
     private Float EYE_COLOUR_DICT_ID; // NUMBER Dictionary code for mouse eye colour

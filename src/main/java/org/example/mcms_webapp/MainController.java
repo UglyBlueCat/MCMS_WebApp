@@ -4,16 +4,22 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
 
+    @Autowired
+    private ForePawGripStrengthLogic forePawGripStrengthLogic;
+
+    @Autowired
+    private MTS_MouseLogic mts_MouseLogic;
+
     @GetMapping("/")
     public String greeting() {
-
-        String forepawGripStrengthJSON = ForePawGripStrengthLogic.SampleJSON;
+        String forepawGripStrengthJSON = forePawGripStrengthLogic.SampleJSON;
 
         String response = "Database initialisation complete";
 
@@ -29,7 +35,8 @@ public class MainController {
                 String mouseName = forepawGripStrengthJsonObject.get("MouseName").getAsString();
                 Float gripStrength = forepawGripStrengthJsonObject.get("GripStrength").getAsFloat();
 
-                ForePawGripStrengthLogic.AddDatabaseEntry(mouseName, subjectGroup, gripStrength);
+                forePawGripStrengthLogic.AddDatabaseEntry(mouseName, subjectGroup, gripStrength);
+                mts_MouseLogic.AddDatabaseEntry(mouseName);
             }
         } catch (JsonSyntaxException e) {
             response = "Error: "+e+"<p>forepawGripStrengthJSON: "+forepawGripStrengthJSON;
