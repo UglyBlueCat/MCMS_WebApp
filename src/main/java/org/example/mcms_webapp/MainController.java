@@ -40,6 +40,12 @@ public class MainController {
                 mts_LitterLogic.AddDatabaseEntry(i);
             }
 
+            // Add dummy breeding data
+            final Integer BREEDING_COUNT = 4;
+            for (int i = 0; i < BREEDING_COUNT; i++) {
+                mts_BreedingLogic.AddDatabaseEntry(i);
+            }
+
             for (int i = 0; i < forepawGripStrengthJsonArraySize; i++) {
                 JsonObject forepawGripStrengthJsonObject = forepawGripStrengthJsonArray.get(i).getAsJsonObject();
 
