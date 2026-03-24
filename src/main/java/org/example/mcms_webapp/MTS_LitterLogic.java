@@ -24,6 +24,9 @@ public class MTS_LitterLogic {
         mts_LITTER.setEDIT_DATE(new Date());
         mts_LITTER.setCREATED_DATE(new Date());
 
+        Integer breedingID= random.nextInt(4) + 1;
+        mts_LITTER.setBREEDING_ID(breedingID);
+
         Integer numberBorn = random.nextInt(9) + 1;
         mts_LITTER.setNUMBER_BORN(numberBorn);
 

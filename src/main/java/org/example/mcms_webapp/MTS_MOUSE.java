@@ -27,7 +27,7 @@ public class MTS_MOUSE {
     private Float CAGE_ID; // NUMBER Foreign Key to MTS_CAGE
     private Float CURRENT_OWNER_ID; // NUMBER NOT USED
     private Float CHECK_NUMBER; // NUMBER Used for optimistic locking in web application
-    private Float GENDER_DICT_ID; // NUMBER Dictionary code for mouse gender 1=female, 2=male
+    private Integer GENDER_DICT_ID; // NUMBER Dictionary code for mouse gender 1=female, 2=male
     private Integer CREATOR_ID; // INTEGER Foreign Key to personnel table for creator of the record
     private Date CREATED_DATE; // DATE Date record was created
     private String BARCODE; // VARCHAR2 (128 Char) Machine generated unique identifier for animal
@@ -177,11 +177,11 @@ public class MTS_MOUSE {
         this.CHECK_NUMBER = CHECK_NUMBER;
     }
 
-    public Float getGENDER_DICT_ID() {
+    public Integer getGENDER_DICT_ID() {
         return GENDER_DICT_ID;
     }
 
-    public void setGENDER_DICT_ID(Float GENDER_DICT_ID) {
+    public void setGENDER_DICT_ID(Integer GENDER_DICT_ID) {
         this.GENDER_DICT_ID = GENDER_DICT_ID;
     }
 
