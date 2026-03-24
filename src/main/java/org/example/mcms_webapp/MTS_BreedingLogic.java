@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MTS_BreeedingLogic {
+public class MTS_BreedingLogic {
     @Autowired
     private static MTS_BreedingRepository mts_BreedingRepository;
 
