@@ -1,12 +1,12 @@
 package org.example.mcms_webapp;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
+import com.google.gson.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class MainController {
@@ -22,6 +22,9 @@ public class MainController {
 
     @Autowired
     private MTS_BreedingLogic mts_BreedingLogic;
+
+    @Autowired
+    private ForePawGripStrengthRepository forePawGripStrengthRepository;
 
     @GetMapping("/")
     public String greeting() {
@@ -59,6 +62,17 @@ public class MainController {
         } catch (JsonSyntaxException e) {
             response = "Error: "+e+"<p>forepawGripStrengthJSON: "+forepawGripStrengthJSON;
         }
+
+        return response;
+    }
+
+    @GetMapping("/average")
+    public String average() {
+
+        List<Map<Integer, Float>> averageGripStrengthList = forePawGripStrengthRepository.findAverageGripStrengthByLitter();
+
+        Gson gson = new Gson();
+        String response = gson.toJson(averageGripStrengthList);
 
         return response;
     }
